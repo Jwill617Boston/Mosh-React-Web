@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Container, Row, Badge, Col } from "react-bootstrap";
 
 class Counter extends Component {
   state = {
@@ -12,26 +13,34 @@ class Counter extends Component {
   render() {
     return (
       <div>
-        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button
-          onClick={this.handleIncrement}
-          className="btn btn-secondary btn-sm"
-        >
-          Increment
-        </button>
+        <Container fluid>
+              <Row>
+                <Col>                 
+                  <button
+                    variant="primary" 
+                    onClick={this.handleIncrement}
+                    className="btn btn-secondary btn-sm"
+                  >
+                    Add +1
+                      <Badge pill variant="light">{this.formatCount()}</Badge>
+                      <span className={this.getBadgeClasses()}></span>
+                  </button>
+                </Col>                  
+            </Row>
+        </Container>
       </div>
     );
   }
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.count === 0 ? "warning" : "sr-only";
     return classes;
   }
 
   formatCount() {
     const { count } = this.state;
-    return count === 0 ? "Zero" : count;
+    return count === 0 ? "Start" : count;
   }
 }
 
