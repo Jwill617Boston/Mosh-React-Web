@@ -3,14 +3,16 @@ import ReactDOM from "react-dom";
 import "./index";
 import registerServiceWorker from "./registerServiceWorker";
 import "bootstrap/dist/css/bootstrap.css";
-import Counter from "./components/counter";
+
 import App from "./App";
+import Movies from "./components/Movies";
 
 ReactDOM.render(
-                <>                    
-                    <Counter />
-                    <App />                    
-                </>, 
-                document.getElementById("root"));
+  <>
+    <Movies />
+    <App />
+  </>,
+  document.getElementById("root")
+);
 
 registerServiceWorker();
