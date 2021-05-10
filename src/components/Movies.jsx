@@ -14,6 +14,8 @@ import {
    OverlayTrigger,
    Container,
    Figure,
+   Image,
+   Carousel,
 } from "react-bootstrap";
 import Face1 from "../images/SamaFace.jpg";
 import Bod1 from "../images/Samabody1.jpg";
@@ -87,6 +89,7 @@ class Movies extends Component {
       return (
          <>
             <Container fluid>
+               {/* NavBar */}
                <Navbar bg="light" expand="lg" sticky="top">
                   <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -122,8 +125,11 @@ class Movies extends Component {
                </Navbar>
             </Container>
             <Container fluid>
-               <Row className="justfy-content-center">Text</Row>
-               <Row>
+               <Image src={Face1} fluid />
+               <Row className="justify-content-center">
+                  <Button>Hello</Button>
+               </Row>
+               <Row className="justify-content-center">
                   {/* Card One */}
                   <Card style={{ width: "18rem" }}>
                      <Card.Img variant="top" src={Face1} />
@@ -132,8 +138,7 @@ class Movies extends Component {
                            <Example2 />{" "}
                         </Card.Title>
                         <Card.Text>
-                           Some quick example text to build on the card title
-                           and make up the bulk of the card's content.
+                           Here are some useless facts about nothing
                         </Card.Text>
                         <Toast>
                            <Toast.Header>
@@ -163,6 +168,7 @@ class Movies extends Component {
                         </Toast>
                      </Card.Body>
                   </Card>
+
                   {/* Card two */}
                   <Card style={{ width: "18rem" }}>
                      <Card.Img variant="top" src={Face1} />
@@ -173,9 +179,10 @@ class Movies extends Component {
                         <Card.Text>I can add anything to this place</Card.Text>
                      </Card.Body>
                   </Card>
+
                   {/* Card three */}
                   <Card style={{ width: "18rem" }}>
-                     <Card.Img variant="top" src={Face1} />
+                     <Card.Img variant="top" src={Bod2} />
                      <Card.Body>
                         <Card.Title>
                            <Example2 />{" "}
@@ -212,9 +219,10 @@ class Movies extends Component {
                         </Toast>
                      </Card.Body>
                   </Card>
+
                   {/* Card four */}
                   <Card style={{ width: "18rem" }}>
-                     <Card.Img variant="top" src={Face1} />
+                     <Card.Img variant="top" src={Bod1} />
                      <Card.Body>
                         <Card.Title>
                            <Example2 />{" "}
@@ -226,7 +234,8 @@ class Movies extends Component {
                      </Card.Body>
                   </Card>
                </Row>
-               <Row>
+               {/* Three Bottom Figures */}
+               <Row className="justify-content-center">
                   <Figure>
                      <Figure.Image
                         width={171}
