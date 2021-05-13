@@ -13,6 +13,7 @@ import Hero from "../images/SamaFaceHeader.jpg";
 import JumboPic from "../images/JumboTronSama.jpg";
 import "../App.css";
 import Pic from "../images/prod1.jpg";
+import AboutUs from "./AboutUs";
 
 // #region constants
 
@@ -102,6 +103,7 @@ class Home extends React.Component {
                      </Card.Body>
                   </Card>
                </Container>
+               <AboutUs />
             </div>
          </div>
       );
