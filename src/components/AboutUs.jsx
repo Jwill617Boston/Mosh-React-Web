@@ -17,7 +17,7 @@ import Pic from "../images/prod1.jpg";
 export class AboutUs extends Component {
    render() {
       return (
-         <Card style={{ width: "18rem" }}>
+         <Card bg="dark" text="white" style={{ width: "18rem" }}>
             <Card.Body>
                <Card.Title>Card Title</Card.Title>
                <Card.Subtitle className="mb-2 text-muted">

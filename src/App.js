@@ -1,16 +1,94 @@
-import React, { Component } from "react";
-import Hero from "./images/SamaFaceHeader.jpg";
-import Home from "./components/Home";
-import "./App.css";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import './App.css';
+import {Navbar, Nav, Form, Button, FormControl, Modal, ModalHeader, ModalBody} from 'react-bootstrap'
 
-class App extends Component {
-   render() {
-      return (
-         <div className="App">
-            <Home />
-         </div>
-      );
-   }
+
+
+function MyVerticallyCenteredModal(props) {
+   return (
+     <Modal
+       {...props}
+       size="lg"
+       aria-labelledby="contained-modal-title-vcenter"
+       centered
+     >
+       <Modal.Header closeButton>
+         <Modal.Title id="contained-modal-title-vcenter">
+           Modal heading
+         </Modal.Title>
+       </Modal.Header>
+       <Modal.Body>
+         <h4>Centered Modal</h4>
+         <p>
+           Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+           dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+           consectetur ac, vestibulum at eros.
+         </p>
+       </Modal.Body>
+       <Modal.Footer>
+         <Button onClick={props.onHide}>Close</Button>
+       </Modal.Footer>
+     </Modal>
+   );
+ }
+
+
+export default function App() {
+
+   const [modalShow, setModalShow] = React.useState(false);
+
+  return (
+     <div>
+      <Navbar bg="dark" variant="dark">
+         <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+         <Nav className="mr-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/users">Users</Nav.Link>
+         </Nav>
+         <Form inline>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+            <Button variant="primary" onClick={() => setModalShow(true)}>
+            Launch vertically centered modal
+            </Button>
+            <MyVerticallyCenteredModal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            />
+         </Form>
+      </Navbar>  
+      <Router>      
+         <Switch>
+            <Route path="/about">
+               <About />
+            </Route>
+            <Route path="/users">
+               <Users />
+            </Route>
+            <Route path="/">
+               <Home />
+            </Route>
+         </Switch>      
+      </Router>
+    </div>
+  );
 }
 
-export default App;
+function Home() {
+  return <div className="bg"></div>;
+}
+
+function About() {
+  return <div className="bg2"></div>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}
+
